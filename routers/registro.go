@@ -40,7 +40,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if status {
+	if !status {
 		http.Error(w, "No se ha logrado insertar el registro del usuario", 400)
 		return
 	}
