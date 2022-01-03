@@ -22,13 +22,13 @@ func BuscoPerfil(ID string) (models.Usuario, error) {
 	objID, _ := primitive.ObjectIDFromHex(ID)
 
 	condicion := bson.M{
-		"_ID": objID,
+		"_id": objID,
 	}
 
 	err := col.FindOne(ctx, condicion).Decode(&perfil)
 	perfil.Password = ""
 	if err != nil {
-		fmt.Println("Registro no encontrad" + err.Error())
+		fmt.Println("Registro no encontrado" + err.Error())
 		return perfil, err
 	}
 	return perfil, nil
